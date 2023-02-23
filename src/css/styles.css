@@ -1,0 +1,78 @@
+body {
+  background: linear-gradient(90deg, rgb(243, 243, 243), rgb(233, 233, 233)100%);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+#cantidad-moneda {
+  width: 10%;
+  max-width: 150px;
+  padding: 10px;
+}
+
+#moneda {
+  width: 8%;
+  max-width: 100px;
+}
+
+#formulario-conversion {
+  margin-bottom: 2em;
+}
+
+.oculto {
+  display: none;
+}
+
+.tarjeta {
+  text-align: center;
+  width: 15%;
+  max-width: 150px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow:  20px 20px 39px #8b8b8b, -20px -20px 39px #ffffff;
+}
+
+.sigla-moneda {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#mensaje-alerta, #credito-imagen {
+  text-align: center;
+}
+
+@media screen and (max-width: 575px) {
+  #moneda {
+    width: 20%;
+  }
+  
+  .tarjeta {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  #moneda {
+    width: 15%;
+  }
+  
+  .tarjeta {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #moneda {
+    width: 10%;
+  }
+  
+  .tarjeta {
+    width: 20%;
+  }
+}
