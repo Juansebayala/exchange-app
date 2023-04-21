@@ -1,5 +1,11 @@
 import { pedirMonedas } from '../servicios/monedas.js';
 
+class Monedas {
+  constructor(monedas) {
+    this.simbolos = Object.keys(monedas.symbols);
+  }
+}
+
 function vaciarMonedasPorDefecto() {
   const $opcionesMonedas = document.querySelectorAll('#moneda option');
   $opcionesMonedas.forEach(($opcionMoneda) => {
@@ -7,10 +13,8 @@ function vaciarMonedasPorDefecto() {
   });
 }
 
-function agregarMonedas(respuestaMonedas) {
+function agregarMonedas(simbolos) {
   const $monedas = document.querySelector('#moneda');
-  const simbolosMonedas = Object.values(respuestaMonedas)[2];
-  const simbolos = Object.keys(simbolosMonedas);
   simbolos.forEach((simbolo) => {
     const $opcionMoneda = document.createElement('option');
     $opcionMoneda.value = simbolo;
@@ -21,5 +25,6 @@ function agregarMonedas(respuestaMonedas) {
 
 export default async function agregarMonedasParaConvertir() {
   vaciarMonedasPorDefecto();
-  agregarMonedas(await pedirMonedas());
+  const monedas = new Monedas(await pedirMonedas());
+  agregarMonedas(monedas.simbolos);
 }

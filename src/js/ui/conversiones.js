@@ -6,6 +6,14 @@ import {
   ocultarMensajeErrorCargaAPI,
 } from './errores.js';
 
+class Conversiones {
+  constructor(monedas) {
+    const datosMonedas = Object.values(monedas.rates)[0];
+    this.siglas = Object.keys(datosMonedas);
+    this.precios = Object.values(datosMonedas);
+  }
+}
+
 function validarFormulario() {
   const cantidadMonedaSeleccionada = Number(
     document.querySelector('#cantidad-moneda').value
@@ -54,8 +62,8 @@ function mostrarResultados(siglasMonedas, valoresMonedas) {
   ocultarAnimacionCargando();
   const $nodoMonedas = document.querySelector('#resultados-intercambio');
   siglasMonedas.forEach((moneda, indice) => {
-    const valorMoneda = valoresMonedas[indice];
-    crearTarjetaDeMoneda($nodoMonedas, moneda, valorMoneda);
+    const valor = valoresMonedas[indice];
+    crearTarjetaDeMoneda($nodoMonedas, moneda, valor);
   });
 }
 
@@ -67,11 +75,8 @@ async function buscarConversiones(fechaConversion, monedaABuscar, cantidad) {
   );
   if (respuesta) {
     ocultarMensajeErrorCargaAPI();
-    const conversionesPorFecha = Object.values(respuesta)[6];
-    const conversionesSeleccionadas = Object.values(conversionesPorFecha)[0];
-    const siglasMonedas = Object.keys(conversionesSeleccionadas);
-    const valoresMonedas = Object.values(conversionesSeleccionadas);
-    mostrarResultados(siglasMonedas, valoresMonedas);
+    const conversiones = new Conversiones(respuesta);
+    mostrarResultados(conversiones.siglas, conversiones.precios);
   } else {
     ocultarAnimacionCargando();
     mostrarMensajeErrorCargaAPI();

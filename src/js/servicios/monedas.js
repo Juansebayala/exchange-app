@@ -13,9 +13,6 @@ export async function pedirConversiones(
   cantidad
 ) {
   try {
-    console.log(
-      `https://api.exchangerate.host/timeseries?start_date=${fechaConversion}&end_date=${fechaConversion}&base=${monedaABuscar}&amount=${cantidad}&places=2`
-    );
     const respuesta = await fetch(
       `https://api.exchangerate.host/timeseries?start_date=${fechaConversion}&end_date=${fechaConversion}&base=${monedaABuscar}&amount=${cantidad}&places=2`
     );
