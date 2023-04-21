@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exchange App</title>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/css/styles.css">
-</head>
-<body>
-  <h1 class="text-center">Exchange App</h1>
-  <p class="text-center">Seleccioná la moneda junto con la cantidad y una fecha para poder visualizar sus intercambios</p>
-  <form id="formulario-conversion">
-    <div class="d-flex justify-content-center gap-2">
-      <select id="moneda" class="rounded">
-        <option value="USD" selected>AED</option>
-        <option value="EUR">EUR</option>
-        <option value="ARS">USD</option>
-        <option value="GPT">GPT</option>
-        <option value="CAD">CAD</option>
-      </select>
-      <input id="cantidad-moneda" class="rounded border border-secondary py-2" type="number" value="1">
-      <input id="fecha-conversion" class="rounded border border-secondary py-2" type="date">
-      <button id="buscar-conversiones" class="btn btn-primary">Buscar conversiones</button>
-    </div>
-  </form>
-  <div id="mensaje-error" class="d-flex justify-content-center">
-    <div class="alert alert-danger oculto" role="alert"></div>
-  </div>
-  <div class="d-flex justify-content-center">
-    <div id="cargando" class="spinner-border text-secondary oculto" role="status">
-      <span class="visually-hidden">Cargando...</span>
-    </div>
-  </div>
-  <div id="resultados-intercambio" class="d-flex flex-wrap gap-3 justify-content-center">
-    
-  </div>
-  <div id="mensaje-error-carga" class="d-flex justify-content-center">
-    <div class="flex-column oculto">
-      <div id="mensaje-alerta" class="alert alert-danger" role="alert">
-        Lo sentimos... No pudimos encontrar las conversiones.
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange App</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/styles.css" />
+  </head>
+  <body>
+    <h1 class="text-center">Exchange App</h1>
+    <p class="text-center">
+      Seleccioná la moneda junto con la cantidad y una fecha para poder
+      visualizar sus intercambios
+    </p>
+    <form id="formulario-conversion">
+      <div class="d-flex justify-content-center gap-2">
+        <select id="moneda" class="rounded">
+          <option value="USD" selected>AED</option>
+          <option value="EUR">EUR</option>
+          <option value="ARS">USD</option>
+          <option value="GPT">GPT</option>
+          <option value="CAD">CAD</option>
+        </select>
+        <input
+          id="cantidad-moneda"
+          class="rounded border border-secondary py-2"
+          type="number"
+          value="1"
+        />
+        <input
+          id="fecha-conversion"
+          class="rounded border border-secondary py-2"
+          type="date"
+        />
+        <button id="buscar-conversiones" class="btn btn-primary">
+          Buscar conversiones
+        </button>
       </div>
-      <img src="src/img/error.png" alt="imagen-error">
-      <div id="credito-imagen">
-        <a href="https://www.freepik.es/vector-gratis/pequenas-personas-que-examinan-advertencia-error-sistema-operativo-pagina-web-aislaron-ilustracion-plana_11235921.htm#query=mensaje%20error&position=3&from_view=keyword&track=ais">Imagen de pch.vector</a> en Freepik
+    </form>
+    <div id="mensaje-error" class="d-flex justify-content-center">
+      <div class="alert alert-danger oculto" role="alert"></div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div
+        id="cargando"
+        class="spinner-border text-secondary oculto"
+        role="status"
+      >
+        <span class="visually-hidden">Cargando...</span>
       </div>
     </div>
-  </div>
-  <script src="src/js/index.js"></script>
-</body>
+    <div
+      id="resultados-intercambio"
+      class="d-flex flex-wrap gap-3 justify-content-center"
+    ></div>
+    <div id="mensaje-error-carga" class="d-flex justify-content-center">
+      <div class="flex-column oculto">
+        <div id="mensaje-alerta" class="alert alert-danger" role="alert">
+          Lo sentimos... No pudimos encontrar las conversiones.
+        </div>
+        <img src="src/img/error.png" alt="imagen-error" />
+        <div id="credito-imagen">
+          <a
+            href="https://www.freepik.es/vector-gratis/pequenas-personas-que-examinan-advertencia-error-sistema-operativo-pagina-web-aislaron-ilustracion-plana_11235921.htm#query=mensaje%20error&position=3&from_view=keyword&track=ais"
+            >Imagen de pch.vector</a
+          >
+          en Freepik
+        </div>
+      </div>
+    </div>
+    <script type="module" src="src/js/index.js"></script>
+  </body>
 </html>
