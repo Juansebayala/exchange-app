@@ -1,10 +1,5 @@
 import { pedirMonedas } from '../servicios/monedas.js';
 
-export async function agregarMonedasParaConvertir() {
-  vaciarMonedasPorDefecto();
-  agregarMonedas(await pedirMonedas());
-}
-
 function vaciarMonedasPorDefecto() {
   const $opcionesMonedas = document.querySelectorAll('#moneda option');
   $opcionesMonedas.forEach(($opcionMoneda) => {
@@ -22,4 +17,9 @@ function agregarMonedas(respuestaMonedas) {
     $opcionMoneda.textContent = simbolo;
     $monedas.appendChild($opcionMoneda);
   });
+}
+
+export default async function agregarMonedasParaConvertir() {
+  vaciarMonedasPorDefecto();
+  agregarMonedas(await pedirMonedas());
 }
